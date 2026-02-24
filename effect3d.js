@@ -58,29 +58,28 @@ function clamp(val, min, max) {
   text3d(x, y, bounds);
 
   if (hasTouchScreen()) {
-    let targetX = x;
-    let targetY = y;
-    let vx = (Math.round(Math.random()) - 0.5) * 4;
-    let vy = (Math.round(Math.random()) - 0.5) * 4;
+    const centerX = boundsRect.left + boundsRect.width / 2;
+    const centerY = boundsRect.top + boundsRect.height / 2;
 
-    const smoothFactor = 0.008; // smaller = smoother
+    const radiusX = boundsRect.width * 0.18;
+    const radiusY = boundsRect.height * 0.12;
 
-    function animateFloatyBounciness() {
-      targetX += vx;
-      targetY += vy;
+    let angle = 0;
+    const speed = 0.005;
 
-      if (targetX < boundsRect.left || targetX > boundsRect.right) vx *= -1;
-      if (targetY < boundsRect.top || targetY > boundsRect.bottom) vy *= -1;
+    function animateCircularFloat() {
+      angle += speed;
 
-      x += (targetX - x) * smoothFactor;
-      y += (targetY - y) * smoothFactor;
+      const x = centerX + Math.cos(angle) * radiusX;
+      const y = centerY + Math.sin(angle) * radiusY;
+
       pic3d(x, y, bounds);
       text3d(x, y, bounds);
 
-      requestAnimationFrame(animateFloatyBounciness);
+      requestAnimationFrame(animateCircularFloat);
     }
 
-    animateFloatyBounciness();
+    animateCircularFloat();
   } else {
     document.body.addEventListener('mousemove', (ev) => {
       const x = ev.clientX;
