@@ -8,21 +8,43 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="flex justify-center items-center w-full min-h-screen bg-slate-50">
-  <main class="flex flex-col items-center w-1/2">
-    <div class="relative size-96">
-      <img src="pic.jpg" id="pic" class="">
+<body
+  class="flex justify-center items-center w-full min-h-screen bg-slate-50 bg-gradient-to-b from-[#0f172a] to-[#020617]">
+  <canvas id="rain" class="fixed left-0 right-0 -z-50 inset-0 pointer-events-none"></canvas>
+
+  <main class="flex flex-col items-center w-3/4 lg:w-1/2 mt-12">
+    <div class="relative size-48 md:size-96 z-10">
+      <img src="pic.jpg" id="pic">
     </div>
 
-    <div class="mt-2 text-justify">
+    <div id="text"
+      class="flex text-white flex-col gap-4 mt-2 p-2 rounded text-justify mb-6 backdrop-blur-xs text-sm md:text-base">
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia reiciendis aspernatur recusandae totam earum
-        commodi rem quae veritatis rerum itaque quia id sunt maxime, quisquam obcaecati. Illo aliquid eos iure.
+        I took this picture right after waking up, the morning after a heavy rain. Frogs were croaking loudly and yet,
+        the rain made the whole place feel calm and renewed. It reminded me how beautiful nature is when it's
+        undisturbed and allowed to recover on its own.
+      </p>
+
+      <p>
+        But, moments like these are becoming less common because of human activities. Deforestation, pollution, and
+        rapid
+        development slowly damage environments like the one in the photo. Heavy rains, which should nourish the land,
+        sometimes become destructive because of poor drainage, clogged waterways, or lack of trees to absorb water. It
+        shows how our actions directly affect natural systems.
+      </p>
+
+      <p>
+        From this, I learnt that nature teaches resilience and balance. After a storm, it recovers
+        with sort of a melancholic calmness. In the words of Paul McCartney, nature simply "lets it be". In my daily
+        life, that means staying consistent, adapting when things get hard, and being more responsible with my choices.
+        And, most importantly, small daily habits matter. If nature can renew itself after heavy rain, I can also reset
+        and grow after challenges.
       </p>
     </div>
   </main>
 
-  <script src="index.js" type="module"></script>
+  <script src="effect3d.js" type="module"></script>
+  <script src="effectRain.js" type="module"></script>
 </body>
 
 </html>
